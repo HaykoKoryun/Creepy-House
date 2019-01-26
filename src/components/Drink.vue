@@ -1,14 +1,27 @@
 <template>
-  <div id="drink">
+  <div id="drink" @click="use">
     <div class="icon">
     </div>
   </div>
 </template>
 <script>
   import { mapState } from 'vuex';
+  import EventBus from 'solutions/event-bus'
 
   export default
-  { name: 'Drink'
+  { 
+    name: 'Drink',
+    props: {
+      index: {
+        type: Number,
+        default: 0
+      }
+    },
+    methods: {
+      use() {
+        EventBus.emit('useDrink', this.index);
+      }
+    }
   }
 </script>
 <style scoped>

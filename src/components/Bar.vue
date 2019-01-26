@@ -24,7 +24,7 @@
     left: 0px;
     bottom: 0px;
     width: 100%;
-    height: 20%;
+    height: 30%;
     background-color: #5a2b00;
     overflow: hidden;
   }
