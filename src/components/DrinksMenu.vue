@@ -74,6 +74,7 @@
       root.addEventListener('mousedown', onMouseDown);
       root.addEventListener('mousemove', onMouseMove);
       root.addEventListener('mouseup', onMouseUp);
+      window.addEventListener('mouseleave', () => drag = false);
     }
   }
 </script>
