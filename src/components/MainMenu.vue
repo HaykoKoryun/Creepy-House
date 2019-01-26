@@ -18,7 +18,6 @@
   #main-menu
   {
     position: absolute;
-    font-family: 'Rock Salt', cursive;
     width: 500px;
     height: 500px;
     left: 0px;
