@@ -73,12 +73,12 @@ export default class Guest {
                 else dialog += `, ${drink}`;
             }
 
-            store.state.dialog = dialog;
+            store.commit('dialog', dialog);
             return this.stage++;
         }
 
         if(this.stage === STAGE_WANT_AGAIN) {
-            store.state.dialog = `Another one!`;
+            store.commit('dialog', 'Another one!');
             return this.stage++;
         }
 
@@ -102,16 +102,16 @@ export default class Guest {
 
     noiceBro() {
         this.satisfaction += this.good;
-        console.log('Noice bro!')
+        store.commit('dialog', 'Noice one bro!');
     }
 
     damnIt() {
         this.satisfaction -= this.bad;
-        console.log('What is this!?')
+        store.commit('dialog', 'This is not my sandwich!');
     }
 
     yourNotGonnaGetIt() {
         this.satisfaction -= this.hmm;
-        console.log('Yeah, OK, whateva!');
+        store.commit('dialog', 'I guess I could drink toilet water!');
     }
 }
