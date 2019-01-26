@@ -32,7 +32,13 @@
   , watch:
     { screenDimensions(newScreenDimensions)
       { const instance = this;
-        instance.pixiApp.renderer.resize(newScreenDimensions.width, newScreenDimensions.height);
+
+        /**
+         * TODO: handle this better
+         */
+        const ratio = newScreenDimensions.width / 1920;
+
+        instance.pixiApp.stage.scale.set(ratio, ratio);
       }
     }
   , async mounted()
@@ -41,8 +47,8 @@
 
       const pixiApp = new PIXI.Application(
       { transparent: true
-      , width: instance.screenDimensions.width
-      , height: instance.screenDimensions.height
+      , width: 1920
+      , height: 1080
       , view: instance.canvas
       });
 
