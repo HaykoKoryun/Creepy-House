@@ -9,22 +9,17 @@
     </canvas>
     <bar>
     </bar>
-    <template
+    <speech-bubble
       v-if="activeGuest"
     >
-      <div id="guest-name">
-        {{ activeGuest.name }}
-      </div>
-      <div id="dialog">
-        {{ dialog }}
-      </div>
-    </template>
+    </speech-bubble>
   </div>
 </template>
 <script>
   import { mapState } from 'vuex';
   import * as PIXI from 'pixi.js';
   import Bar from './Bar.vue';
+  import SpeechBubble from './SpeechBubble.vue';
   import assets from '../data/assets.js';
   import init from '../solutions/main.js';
 
@@ -45,6 +40,7 @@
     })
   , components:
     { Bar
+    , SpeechBubble
     }
   , watch:
     { screenDimensions(newScreenDimensions)
