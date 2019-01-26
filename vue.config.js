@@ -7,5 +7,12 @@ module.exports = {
         assets: path.resolve(__dirname, './assets')
       }
     }
+  },
+  configureWebpack: {
+    resolve: {
+      modules: [
+          path.resolve(__dirname, './src/'),
+      ]
+    }
   }
 }

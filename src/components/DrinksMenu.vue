@@ -31,5 +31,10 @@
     height: 75%;
     display: flex;
     justify-content: center;
+
+    overflow-y: hidden;
+    overflow-x: auto;
+
+    padding-bottom: 16px;
   }
 </style>

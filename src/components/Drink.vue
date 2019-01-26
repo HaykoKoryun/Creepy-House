@@ -12,14 +12,20 @@
   }
 </script>
 <style scoped>
+
   #drink
   {
-    border: solid 2px #fff;
-    width: 100px;
-    height: 130px;
+    --drink-border-color: #757575;
+    border-right: 2px solid var(--drink-border-color);
+    border-left: 2px solid var(--drink-border-color);
+    border-bottom: 4px solid var(--drink-border-color);
+    width: 120px;
+    height: 100px;
     box-sizing: border-box;
     cursor: pointer;
-    margin: 0px 5px;
+    margin: 6px 12px;
+
+    border-radius: 2px;
   }
 
   #drink .icon

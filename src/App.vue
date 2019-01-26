@@ -15,6 +15,7 @@
 </template>
 <script>
   import { mapState } from 'vuex';
+  import Main from 'solutions/main';
   import MainMenu from './components/MainMenu.vue';
   import Game from './components/Game.vue';
 
@@ -30,6 +31,8 @@
     })
   , methods:
     {
+    }
+  , mounted() { Main();
     }
   }
 </script>
