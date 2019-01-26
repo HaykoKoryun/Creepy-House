@@ -1,10 +1,17 @@
 <template>
   <div id="app">
     <div
-      v-if="!started"
       id="bg"
+      :class="{blur:!started}"
     >
     </div>
+    <video
+      id="party-video"
+      src="/assets/video/bg.webm"
+      loop
+      autoplay
+    >
+    </video>
     <MainMenu
       v-if="!started" 
     >
@@ -75,6 +82,19 @@
     background-image: url(./assets/images/bg.png);
     background-size: cover;
     background-position: 50%;
+  }
+
+  #party-video
+  {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+  }
+
+  #bg.blur
+  {
     filter: blur(10px);
   }
 </style>

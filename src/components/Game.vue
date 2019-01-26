@@ -73,8 +73,8 @@
 
           instance.guestContainer.addChild(sprite);
 
-          instance.guestContainer.position.x = instance.pixiApp.stage.width / 2;
-          instance.guestContainer.position.y = instance.pixiApp.stage.height - 200;
+          instance.guestContainer.position.x = instance.canvas.width / 2;
+          instance.guestContainer.position.y = instance.canvas.height - 280;
 
           instance.guestContainer.pivot = new PIXI.Point
           ( sprite.width / 2,
@@ -106,11 +106,7 @@
 
       await new Promise((resolve, reject) =>
       { loader.load((loader, resources) =>
-        { const bg = new PIXI.Sprite(resources.bg.texture);
-          
-          pixiApp.stage.addChild(bg);
-
-          instance.guestContainer = new PIXI.Sprite();
+        { instance.guestContainer = new PIXI.Sprite();
           pixiApp.stage.addChild(instance.guestContainer);
           
           resolve();
