@@ -33,8 +33,8 @@
     border-right: 2px solid var(--drink-border-color);
     border-left: 2px solid var(--drink-border-color);
     border-bottom: 4px solid var(--drink-border-color);
-    width: 120px;
-    height: 100px;
+    width: 180px;
+    height: 150px;
     box-sizing: border-box;
     cursor: pointer;
     margin: 6px 12px;
@@ -44,8 +44,8 @@
 
   #drink .icon
   {
-    width: 96px;
-    height: 100px;
+    width: 144px;
+    height: 140px;
     background-image: url(../assets/images/drink.jpg);
     background-size: contain;
   }
