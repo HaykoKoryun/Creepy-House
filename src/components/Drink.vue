@@ -1,7 +1,10 @@
 <template>
   <div id="drink" @click="use">
-    <div class="icon">
+    <div class="icon" :style="iconStyle">
     </div>
+    <p class="title">
+      {{ drink.name }}
+    </p>
   </div>
 </template>
 <script>
@@ -22,6 +25,11 @@
       { const instance = this;
         instance.$store.commit('useDrink', instance.drink);
       }
+    },
+    computed: {
+      iconStyle() {
+        return `background-image: url("/assets/drinks-icons/${this.drink.image}.png")`;
+      }
     }
   }
 </script>
@@ -29,10 +37,10 @@
 
   #drink
   {
-    --drink-border-color: #757575;
+    /* --drink-border-color: #757575;
     border-right: 2px solid var(--drink-border-color);
     border-left: 2px solid var(--drink-border-color);
-    border-bottom: 4px solid var(--drink-border-color);
+    border-bottom: 4px solid var(--drink-border-color); */
     width: 180px;
     height: 150px;
     box-sizing: border-box;
@@ -46,7 +54,11 @@
   {
     width: 144px;
     height: 140px;
-    background-image: url(../assets/images/drink.jpg);
-    background-size: contain;
+    background-size: cover;
+  }
+
+  .title {
+    color: #fff;
+    font-size: 12px;
   }
 </style>
