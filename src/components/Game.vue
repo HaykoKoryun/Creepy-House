@@ -32,7 +32,7 @@
   , watch:
     { screenDimensions(newScreenDimensions)
       { const instance = this;
-        intance.pixiApp.renderer.resize(newScreenDimensions.width, newScreenDimensions.height);
+        instance.pixiApp.renderer.resize(newScreenDimensions.width, newScreenDimensions.height);
       }
     }
   , async mounted()
@@ -53,7 +53,7 @@
       instance.pixiLoader = loader;
 
       loader.add('/assets/images/bg.jpg');
-      loader.add('/assets/images/babushka.jpg');
+      loader.add('/assets/guests/babushka.png');
 
       await new Promise((resolve, reject) =>
       { loader.load(() =>
@@ -61,11 +61,11 @@
           
           pixiApp.stage.addChild(sprite);
 
-          const bab = PIXI.Sprite.fromImage('/assets/images/babushka.jpg');
+          const bab = PIXI.Sprite.fromImage('/assets/guests/babushka.png');
           pixiApp.stage.addChild(bab);
           resolve();
         });
-      })
+      });
     }
   }
 </script>
