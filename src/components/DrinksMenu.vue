@@ -43,20 +43,20 @@
 
   function onMouseUp (e) {
     drag = false;
-    // if (!e) { e = window.event; }
-    // var start = 1,
-    //     animate = function () {
-    //         var step = Math.sin(start);
-    //         if (step <= 0) {
-    //             window.cancelAnimationFrame(animate);
-    //         } else {
-    //             el.scrollLeft += diffx * step;
-    //             el.scrollTop += diffy * step;
-    //             start -= 0.02;
-    //             window.requestAnimationFrame(animate);
-    //         }
-    //     };
-    // animate();
+    if (!e) { e = window.event; }
+    var start = 1,
+        animate = function () {
+            var step = Math.sin(start);
+            if (step <= 0) {
+                window.cancelAnimationFrame(animate);
+            } else {
+                el.scrollLeft += diffx * step;
+                el.scrollTop += diffy * step;
+                start -= 0.02;
+                window.requestAnimationFrame(animate);
+            }
+        };
+    animate();
   }
 
   export default
@@ -74,7 +74,8 @@
       root.addEventListener('mousedown', onMouseDown);
       root.addEventListener('mousemove', onMouseMove);
       root.addEventListener('mouseup', onMouseUp);
-      window.addEventListener('mouseleave', () => drag = false);
+      root.addEventListener('mouseleave', () => drag = false);
+      window.addEventListener('mouseup', () => drag = false);
     }
   }
 </script>
