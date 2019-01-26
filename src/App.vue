@@ -17,7 +17,6 @@
 </template>
 <script>
   import { mapState } from 'vuex';
-  import Main from 'solutions/main';
   import MainMenu from './components/MainMenu.vue';
   import Game from './components/Game.vue';
 
@@ -44,8 +43,6 @@
         , height: window.innerHeight
         });
       });
-
-      Main();
     }
   , methods:
     {

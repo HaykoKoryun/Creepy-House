@@ -26,6 +26,7 @@
   import * as PIXI from 'pixi.js';
   import Bar from './Bar.vue';
   import assets from '../data/assets.js';
+  import init from '../solutions/main.js';
 
   export default
   { name: 'Game'
@@ -53,6 +54,22 @@
         const ratio = newScreenDimensions.width / 1920;
 
         instance.pixiApp.stage.scale.set(ratio, ratio);
+      }
+    , activeGuest(newGuest)
+      { console.log(newGuest);
+
+      // const bab = new PIXI.Sprite(resources.babushka.texture)
+
+          
+      //     instance.guestContainer.addChild(bab);
+
+      //     instance.guestContainer.position.x = instance.pixiApp.stage.width / 2;
+      //     instance.guestContainer.position.y = instance.pixiApp.stage.height - 200;
+
+      //     instance.guestContainer.pivot = new PIXI.Point
+      //     ( bab.width / 2,
+      //       bab.height
+      //     );
       }
     }
   , async mounted()
@@ -82,24 +99,14 @@
           
           pixiApp.stage.addChild(bg);
 
-          const bab = new PIXI.Sprite(resources.babushka.texture)
-
           instance.guestContainer = new PIXI.Sprite();
-          instance.guestContainer.addChild(bab);
-
-          instance.guestContainer.position.x = instance.pixiApp.stage.width / 2;
-          instance.guestContainer.position.y = instance.pixiApp.stage.height - 200;
-
-          instance.guestContainer.pivot = new PIXI.Point
-          ( bab.width / 2,
-            bab.height
-          );
-
           pixiApp.stage.addChild(instance.guestContainer);
           
           resolve();
         });
       });
+
+      init(instance.$store);
     }
   }
 </script>
