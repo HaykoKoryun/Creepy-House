@@ -1,42 +1,39 @@
 const drinks =
-[ { name: 'Godfather'
-  , image: 'drink'
+[ { name: 'Golab'
+  , image: '01'
   }
-, { name: 'Rob Roy'
-  , image: 'drink'
+, { name: 'The Gold Fish'
+  , image: '02'
   }
-, { name: 'Hanky Panky'
-  , image: 'drink'
+, { name: 'Poison Ivy'
+  , image: '03'
   }
-, { name: 'Jungle Bird'
-  , image: 'drink'
+, { name: 'Horse\'s'
+  , image: '04'
   }
-, { name: 'White Russian'
-  , image: 'drink'
+, { name: 'Blue Nun'
+  , image: '05'
   }
-, { name: 'Painkiller'
-  , image: 'drink'
+, { name: 'James Bond'
+  , image: '06'
   }
-, { name: 'Sidecard'
-  , image: 'drink'
+, { name: 'Vlad\'s Favorite'
+  , image: '07'
   }
-, { name: 'Paloma'
-  , image: 'drink'
+, { name: 'Vitamin C++'
+  , image: '08'
   }
-, { name: 'French 75'
-  , image: 'drink'
+, { name: 'A Bucket O\' Water'
+  , image: '09'
   }
-, { name: 'Corpse Reviver'
-  , image: 'drink'
+, { name: 'Covfefe'
+  , image: '10'
   }
-, { name: 'Zombie'
-  , image: 'drink'
+, { name: 'Lenin\'s Lemon'
+  , image: '11'
   }
-, { name: 'Sazerac'
-  , image: 'drink'
-  }
-, { name: 'Stalin'
-  , image: 'drink'
+, { name: 'Purple Haze'
+  , image: '12'
   }
 ];
 
