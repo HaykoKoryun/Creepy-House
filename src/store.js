@@ -11,10 +11,17 @@ export default new Vuex.Store({
   , started: false
   , drinks: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
   , guests: [new Guest(1),new Guest(1),new Guest(1),new Guest(1),new Guest(1),new Guest(1),new Guest(1),new Guest(1),new Guest(1)]
+  , screenDimensions:
+    { width: 0
+    , height: 0
+    }
   },
   mutations:
   { start(state)
     { state.started = true;
+    }
+  , updateSize(state, dimensions)
+    { state.screenDimensions = dimensions;
     }
   },
   actions: 

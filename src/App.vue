@@ -1,12 +1,14 @@
 <template>
   <div id="app">
     <div
+      v-if="!started"
       id="bg"
-      :class="{blur:blurBackground}"
-    ></div>
+    >
+    </div>
     <MainMenu
       v-if="!started" 
-    ></MainMenu>
+    >
+    </MainMenu>
     <game
       v-if="started"
     >
@@ -26,13 +28,27 @@
     , Game
     }
   , computed: mapState(
-    { blurBackground: 'blurBackground'
-    , started: 'started'
+    { started: 'started'
     })
+  , mounted()
+    { const instance = this;
+
+      instance.$store.commit('updateSize',
+      { width: window.innerWidth
+      , height: window.innerHeight
+      });
+
+      window.addEventListener('resize', () =>
+      { instance.$store.commit('updateSize',
+        { width: window.innerWidth
+        , height: window.innerHeight
+        });
+      });
+
+      Main();
+    }
   , methods:
     {
-    }
-  , mounted() { Main();
     }
   }
 </script>
@@ -61,10 +77,6 @@
     background-image: url(./assets/images/bg.jpg);
     background-size: cover;
     background-position: 50%;
-  }
-
-  #bg.blur
-  {
     filter: blur(10px);
   }
 </style>

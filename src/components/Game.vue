@@ -1,6 +1,11 @@
 <template>
   <div id="game">
-    <canvas id="canvas">
+    <canvas
+      id="canvas"
+      ref="canvas"
+      :width="screenDimensions.width"
+      :height="screenDimensions.height"
+    >
     </canvas>
     <bar>
     </bar>
@@ -8,12 +13,59 @@
 </template>
 <script>
   import { mapState } from 'vuex';
+  import * as PIXI from 'pixi.js';
   import Bar from './Bar.vue';
 
   export default
   { name: 'Game'
+  , data: () => (
+    { canvas: null
+    , pixiApp: null
+    , pixiLoader: null
+    })
+  , computed: mapState(
+    { screenDimensions: 'screenDimensions'
+    })
   , components:
     { Bar
+    }
+  , watch:
+    { screenDimensions(newScreenDimensions)
+      { const instance = this;
+        intance.pixiApp.renderer.resize(newScreenDimensions.width, newScreenDimensions.height);
+      }
+    }
+  , async mounted()
+    { const instance = this;
+      instance.canvas = instance.$refs.canvas;
+
+      const pixiApp = new PIXI.Application(
+      { transparent: true
+      , width: instance.screenDimensions.width
+      , height: instance.screenDimensions.height
+      , view: instance.canvas
+      });
+
+      instance.pixiApp = pixiApp;
+
+      const loader = new PIXI.loaders.Loader();
+
+      instance.pixiLoader = loader;
+
+      loader.add('/assets/images/bg.jpg');
+      loader.add('/assets/images/babushka.jpg');
+
+      await new Promise((resolve, reject) =>
+      { loader.load(() =>
+        { const sprite = PIXI.Sprite.fromImage('/assets/images/bg.jpg');
+          
+          pixiApp.stage.addChild(sprite);
+
+          const bab = PIXI.Sprite.fromImage('/assets/images/babushka.jpg');
+          pixiApp.stage.addChild(bab);
+          resolve();
+        });
+      })
     }
   }
 </script>
