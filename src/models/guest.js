@@ -1,31 +1,6 @@
-const DRINKS = 
-[
-    "Godfather",
-    "Rob roy",
-    "Hanky panky",
-    "Jungle bird",
-    "White russian",
-    "Painkiller",
-    "Sidecar",
-    "Paloma",
-    "french 75",
-    "corpse reviver",
-    "zombie",
-    "sazerac",
-    "stalin"
-];
-
-const PERSONS = [
-    "Aristocrat",
-    "Intelligent",
-    "Criminal",
-    "Punk",
-    "Cat",
-    "Russian",
-    "Racer",
-    "Tatik",
-    "Stalin"
-];
+const faker = require('faker');
+import drinks from '../data/drinks';
+import guests from '../data/guests';
 
 const randomFromArray = items => items[Math.floor(Math.random()*items.length)];
 
@@ -33,6 +8,11 @@ export default class Guest {
     constructor (level) {
         this.isActivated = false;
         this.level = level;
+        
+        const _guest = randomFromArray(guests);
+
+        this.name = faker.name.firstName(_guest.gender);
+        this.image = _guest.image;
 
         switch(level) {
             case 1: 
@@ -56,14 +36,12 @@ export default class Guest {
         this.drinks = [];
 
         for(let i = 0; i < this.drinkCount; i++) {
-            let drink = randomFromArray(DRINKS);
+            let drink = randomFromArray(drinks);
             while(this.drinks.indexOf(drink) !== -1) {
-                drink = randomFromArray(DRINKS);
+                drink = randomFromArray(drinks);
             }
             this.drinks.push(drink);
         }
-        
-        this.person = randomFromArray(PERSONS);
     
         this.satisfaction = 100;
     }
