@@ -24,8 +24,8 @@
     left: 0px;
     bottom: 0px;
     width: 100%;
-    height: 27%;
-    background-color: #5a2b00;
+    height: 28%;
+    background-image: url(../assets/images/bar.png);
     overflow: hidden;
   }
 
@@ -42,12 +42,12 @@
   @keyframes bar-striplights
   { from 
     {
-      box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #FF1177, 0 0 70px #FF1177, 0 0 80px #FF1177, 0 0 100px #FF1177, 0 0 150px #FF1177;
+      box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #88f9cb, 0 0 70px #88f9cb, 0 0 80px #88f9cb, 0 0 100px #88f9cb, 0 0 150px #FF1177;
     }
 
     to
     {
-      box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #FF1177, 0 0 35px #FF1177, 0 0 40px #FF1177, 0 0 50px #FF1177, 0 0 75px #FF1177;
+      box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #88f9cb, 0 0 35px #88f9cb, 0 0 40px #88f9cb, 0 0 50px #88f9cb, 0 0 75px #88f9cb;
     }
   }
 </style>
