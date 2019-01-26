@@ -35,6 +35,7 @@
     , pixiApp: null
     , pixiLoader: null
     , guestContainer: null
+    , drinkContainer: null
     })
   , computed: mapState(
     { screenDimensions: 'screenDimensions'
@@ -83,13 +84,6 @@
           );
         }         
       }
-    , drink(newDrink)
-      { const instance = this;
-
-        if(newDrink)
-        { instance.activeGuest.useDrink(newDrink.name);
-        }
-      }
     }
   , async mounted()
     { const instance = this;
@@ -116,6 +110,9 @@
       { loader.load((loader, resources) =>
         { instance.guestContainer = new PIXI.Sprite();
           pixiApp.stage.addChild(instance.guestContainer);
+
+          instance.drinkContainer = new PIXI.Sprite();
+          pixiApp.stage.addChild(instance.drinkContainer);
           
           resolve();
         });

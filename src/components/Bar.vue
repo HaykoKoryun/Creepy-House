@@ -1,19 +1,23 @@
 <template>
   <div id="bar">
-    <div id="bar-striplights">
+    <div id="bar-striplights-container">
+      <div id="bar-striplights">
+      </div>
     </div>
-    <drinks-menu>
-    </drinks-menu>
+    <drinks-menu></drinks-menu>
+    <drink-on-bar></drink-on-bar>
   </div>
 </template>
 <script>
   import { mapState } from 'vuex';
   import DrinksMenu from './DrinksMenu.vue';
+  import DrinkOnBar from './DrinkOnBar.vue';
 
   export default
   { name: 'Bar'
   , components:
     { DrinksMenu
+    , DrinkOnBar
     }
   }
 </script>
@@ -26,6 +30,15 @@
     width: 100%;
     height: 32%;
     background-image: url(../assets/images/bar.png);
+  }
+
+  #bar-striplights-container
+  {
+    position: absolute;
+    left: 0px;
+    top:0px;
+    width: 100%;
+    height: 52%;
     overflow: hidden;
   }
 
@@ -35,8 +48,9 @@
     left: 0px;
     top: 0px;
     width: 100%;
-    height: 35%;
+    height: 60%;
     animation: bar-striplights 1.5s ease-in-out infinite alternate;
+    opacity: 0.3;
   }
 
   @keyframes bar-striplights
