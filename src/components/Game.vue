@@ -69,6 +69,7 @@
 
       loader.add('/assets/images/bg.png');
       loader.add('/assets/guests/babushka.png');
+      loader.add('/assets/guests/zombie.png');
 
       await new Promise((resolve, reject) =>
       { loader.load((loader, resources) =>
