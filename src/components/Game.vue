@@ -9,6 +9,13 @@
     </canvas>
     <bar>
     </bar>
+    <template
+      v-if="waitingGuest"
+    >
+      <div id="guest-name">
+        {{ waitingGuest.name }}
+      </div>
+    </template>
   </div>
 </template>
 <script>
@@ -25,6 +32,7 @@
     })
   , computed: mapState(
     { screenDimensions: 'screenDimensions'
+    , waitingGuest: 'waitingGuest'
     })
   , components:
     { Bar
@@ -83,5 +91,15 @@
     top: 0px;
     width: 100%;
     height: 100%;
+  }
+  
+  #guest-name
+  {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 100px;
+    font-weight: bold;
+    color: #fff;
   }
 </style>
