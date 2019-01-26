@@ -84,7 +84,7 @@
         }         
       }
     , drink(newDrink)
-      {
+      { console.log(newDrink.name);
       }
     }
   , async mounted()

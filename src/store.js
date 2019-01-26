@@ -18,6 +18,7 @@ export default new Vuex.Store({
     { width: 0
     , height: 0
     }
+  , drink: null
   },
   mutations:
   { start(state)
@@ -30,7 +31,7 @@ export default new Vuex.Store({
     { state.activeGuest = guest;
     }
   , useDrink(state, drink)
-    { state.drink = drink
+    { state.drink = drink;
     }
   },
   actions: 
