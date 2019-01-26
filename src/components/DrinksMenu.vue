@@ -5,15 +5,17 @@
     <drink
       v-for="(drink, index) in drinks"
       :key="index"
-      :index="index"
+      :drink="drink"
     ></drink>
 
     <div class="edge"></div>
   </div>
 </template>
 <script>
-  import { mapState } from 'vuex';
-  import Drink from './Drink.vue';
+  import { mapState } from 'vuex'
+  import Drink from './Drink.vue'
+
+  import drinks from 'data/drinks'
 
   let startx, starty, diffx, diffy, drag, el;
 
@@ -64,9 +66,11 @@
   , components:
     { Drink
     }
-  , computed: mapState(
-    { drinks: 'drinks'
-    })
+  , data() {
+      return {
+        drinks
+      }
+    }
   , mounted() {
       const root = document.getElementById('drinks-menu');
       el = root;

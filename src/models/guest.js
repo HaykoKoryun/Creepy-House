@@ -19,24 +19,28 @@ export default class Guest {
                 this.drinkCount = 3;
                 this.good = 20;
                 this.bad  = 20;
+                this.hmm  = 10;
             case 2:
                 this.drinkCount = 2;
                 this.good = 15;
                 this.bad  = 30;
+                this.hmm  = 20;
             case 3:
                 this.drinkCount = 1;
                 this.good = 10;
                 this.bad  = 40;
+                this.hmm  = 30;
             default:
                 this.good = 15;
                 this.bad  = 30;
+                this.hmm  = 20;
                 this.drinkCount = 2;
         }
 
         this.drinks = [];
 
         for(let i = 0; i < this.drinkCount; i++) {
-            let drink = randomFromArray(drinks);
+            let drink = randomFromArray(drinks).name;
             while(this.drinks.indexOf(drink) !== -1) {
                 drink = randomFromArray(drinks);
             }
@@ -55,11 +59,13 @@ export default class Guest {
 
     noiceBro() {
         this.satisfaction += this.good;
-        // TODO Say Noice and go away
     }
 
     damnIt() {
         this.satisfaction -= this.bad;
-        // TODO Say this is shitt and go away
+    }
+
+    yourNotGonnaGetIt() {
+        this.satisfaction -= this.hmm;
     }
 }

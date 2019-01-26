@@ -12,14 +12,14 @@
   { 
     name: 'Drink',
     props: {
-      index: {
-        type: Number,
-        default: 0
+      drink: {
+        type: Object,
+        default: () => {return {}}
       }
     },
     methods: {
       use() {
-        EventBus.emit('useDrink', this.index);
+        EventBus.emit('useDrink', this.drink.name);
       }
     }
   }
