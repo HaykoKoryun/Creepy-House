@@ -22,6 +22,7 @@
   import { mapState } from 'vuex';
   import * as PIXI from 'pixi.js';
   import Bar from './Bar.vue';
+  import assets from '../data/assets.js';
 
   export default
   { name: 'Game'
@@ -67,17 +68,17 @@
 
       instance.pixiLoader = loader;
 
-      loader.add('/assets/images/bg.png');
-      loader.add('/assets/guests/babushka.png');
-      loader.add('/assets/guests/zombie.png');
+      assets.forEach((asset) =>
+      { loader.add(asset.key, asset.URL);
+      });
 
       await new Promise((resolve, reject) =>
       { loader.load((loader, resources) =>
-        { const bg = new PIXI.Sprite(resources['/assets/images/bg.png'].texture);
+        { const bg = new PIXI.Sprite(resources.bg.texture);
           
           pixiApp.stage.addChild(bg);
 
-          const bab = new PIXI.Sprite(resources['/assets/guests/babushka.png'].texture)
+          const bab = new PIXI.Sprite(resources.babushka.texture)
 
           instance.guestContainer = new PIXI.Sprite();
           instance.guestContainer.addChild(bab);
