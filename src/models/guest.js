@@ -3,7 +3,7 @@ import drinks from '../data/drinks';
 import guests from '../data/guests';
 import store  from 'store';
 
-const randomFromArray = items => items[Math.floor(Math.random()*items.length)];
+import randomFromArray from '../common/randomFromArray';
 
 const STAGE_SAY_PREFERNCES = 1;
 const STAGE_WANT_AGAIN = 2;

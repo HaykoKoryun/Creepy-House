@@ -26,6 +26,9 @@ export default new Vuex.Store({
   , updateSize(state, dimensions)
     { state.screenDimensions = dimensions;
     }
+  , activeGuest(state, guest)
+    { state.activeGuest = guest;
+    }
   },
   actions: 
   {

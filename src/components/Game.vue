@@ -56,20 +56,31 @@
         instance.pixiApp.stage.scale.set(ratio, ratio);
       }
     , activeGuest(newGuest)
-      { console.log(newGuest);
+      { const instance = this;
 
-      // const bab = new PIXI.Sprite(resources.babushka.texture)
+        if(instance.guestContainer.children.length != 0)
+        { instance.guestContainer.removeChildren();
+        }
 
-          
-      //     instance.guestContainer.addChild(bab);
+        if(newGuest)
+        { const sprite =
+            new PIXI.Sprite
+            ( instance
+              .pixiLoader
+              .resources[newGuest.image]
+              .texture
+            );
 
-      //     instance.guestContainer.position.x = instance.pixiApp.stage.width / 2;
-      //     instance.guestContainer.position.y = instance.pixiApp.stage.height - 200;
+          instance.guestContainer.addChild(sprite);
 
-      //     instance.guestContainer.pivot = new PIXI.Point
-      //     ( bab.width / 2,
-      //       bab.height
-      //     );
+          instance.guestContainer.position.x = instance.pixiApp.stage.width / 2;
+          instance.guestContainer.position.y = instance.pixiApp.stage.height - 200;
+
+          instance.guestContainer.pivot = new PIXI.Point
+          ( sprite.width / 2,
+            sprite.height
+          );
+        }          
       }
     }
   , async mounted()
