@@ -65,6 +65,7 @@
     position: absolute;
     left: 0px;
     top: 0px;
+    font-family: 'Rock Salt', cursive;
   }
 
   #bg
