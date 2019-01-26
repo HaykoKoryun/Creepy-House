@@ -1,12 +1,21 @@
 const guests =
 [ 'babushka'
-, 'zombie'
+, 'mummy'
+, 'vlad'
+];
+
+const states =
+[ 'normal'
+, 'happy'
+, 'angry'
 ];
 
 const assets = [];
 
 guests.forEach((guest) =>
-{ assets.push({key: guest, URL: `./assets/guests/${guest}.png`});
+{ states.forEach((state) =>
+  { assets.push({key: `${guest}-${state}`, URL: `./assets/guests/${guest}-${state}.png`});
+  });
 });
 
 for(let i = 1; i < 13; ++i)

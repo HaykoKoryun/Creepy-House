@@ -69,9 +69,11 @@
             new PIXI.Sprite
             ( instance
               .pixiLoader
-              .resources[newGuest.image]
+              .resources[`${newGuest.image}-normal`]
               .texture
             );
+
+          sprite.scale.set(0.45);
 
           instance.guestContainer.addChild(sprite);
 
