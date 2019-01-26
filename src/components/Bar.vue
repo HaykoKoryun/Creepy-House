@@ -24,7 +24,7 @@
     left: 0px;
     bottom: 0px;
     width: 100%;
-    height: 28%;
+    height: 32%;
     background-image: url(../assets/images/bar.png);
     overflow: hidden;
   }
