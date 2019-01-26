@@ -82,6 +82,12 @@
           );
         }         
       }
+    , drink(newDrink)
+      { const instance = this;
+        if(newDrink)
+        { instance.activeGuest.useDrink(newDrink.name);
+        }
+      }
     }
   , async mounted()
     { const instance = this;
