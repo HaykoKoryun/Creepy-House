@@ -3,20 +3,17 @@
     <h1>Party 'til Dawn</h1>
     <div
       id="start"
-      :on-click="$emit('start')"
+      @click="$store.commit('start');"
     >
       START
     </div>
   </div>
 </template>
-
 <script>
-export default {
-  name: 'MainMenu'
-}
+  export default
+  { name: 'MainMenu'
+  }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
   #main-menu
   {
@@ -44,5 +41,6 @@ export default {
     font-weight: bold;
     color: #f0f;
     letter-spacing: 10px;
+    cursor: pointer;
   }
 </style>
