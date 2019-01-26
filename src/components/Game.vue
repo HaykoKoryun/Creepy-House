@@ -83,7 +83,7 @@
           instance.guestContainer.addChild(bab);
 
           instance.guestContainer.position.x = instance.pixiApp.stage.width / 2;
-          instance.guestContainer.position.y = instance.pixiApp.stage.height - 300;
+          instance.guestContainer.position.y = instance.pixiApp.stage.height - 200;
 
           instance.guestContainer.pivot = new PIXI.Point
           ( bab.width / 2,
