@@ -10,10 +10,13 @@
     <bar>
     </bar>
     <template
-      v-if="waitingGuest"
+      v-if="activeGuest"
     >
       <div id="guest-name">
-        {{ waitingGuest.name }}
+        {{ activeGuest.name }}
+      </div>
+      <div id="dialog">
+        {{ dialog }}
       </div>
     </template>
   </div>
@@ -33,7 +36,8 @@
     })
   , computed: mapState(
     { screenDimensions: 'screenDimensions'
-    , waitingGuest: 'waitingGuest'
+    , activeGuest: 'activeGuest'
+    , dialog: 'dialog'
     })
   , components:
     { Bar
@@ -107,13 +111,20 @@
     height: 100%;
   }
   
-  #guest-name
+  #guest-name, #dialog
   {
     position: absolute;
     left: 0px;
     right: 0px;
-    top: 100px;
     font-weight: bold;
     color: #fff;
+  }
+
+  #guest-name {
+    top: 100px;
+  }
+
+  #dialog {
+    top: 140px;
   }
 </style>

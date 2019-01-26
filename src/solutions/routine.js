@@ -10,6 +10,7 @@ let timeout;
 
 export async function chooseGuest () {
     store.state.activeGuest = randomFromArray(store.state.guests);
+    store.state.activeGuest.activate();
 
     console.log('New guest entered: ', store.state.activeGuest);
 
