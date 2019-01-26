@@ -17,9 +17,10 @@
         default: () => {return {}}
       }
     },
-    methods: {
-      use() {
-        EventBus.emit('useDrink', this.drink.name);
+    methods:
+    { use()
+      { const instance = this;
+        instance.$store.commit('useDrink', instance.drink);
       }
     }
   }

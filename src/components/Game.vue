@@ -40,6 +40,7 @@
     { screenDimensions: 'screenDimensions'
     , activeGuest: 'activeGuest'
     , dialog: 'dialog'
+    , drink: 'drink'
     })
   , components:
     { Bar
@@ -80,7 +81,10 @@
           ( sprite.width / 2,
             sprite.height
           );
-        }          
+        }         
+      }
+    , drink(newDrink)
+      {
       }
     }
   , async mounted()

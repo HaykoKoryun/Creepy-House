@@ -29,6 +29,9 @@ export default new Vuex.Store({
   , activeGuest(state, guest)
     { state.activeGuest = guest;
     }
+  , useDrink(state, drink)
+    { state.drink = drink
+    }
   },
   actions: 
   {
