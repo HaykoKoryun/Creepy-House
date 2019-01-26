@@ -84,7 +84,11 @@
         }         
       }
     , drink(newDrink)
-      { console.log(newDrink.name);
+      { const instance = this;
+
+        if(newDrink)
+        { instance.activeGuest.useDrink(newDrink.name);
+        }
       }
     }
   , async mounted()

@@ -102,13 +102,16 @@ export default class Guest {
 
     noiceBro() {
         this.satisfaction += this.good;
+        console.log('Noice bro!')
     }
 
     damnIt() {
         this.satisfaction -= this.bad;
+        console.log('What is this!?')
     }
 
     yourNotGonnaGetIt() {
         this.satisfaction -= this.hmm;
+        console.log('Yeah, OK, whateva!');
     }
 }
