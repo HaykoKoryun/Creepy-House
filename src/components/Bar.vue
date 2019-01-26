@@ -2,6 +2,8 @@
   <div id="bar">
     <div id="bar-striplights">
     </div>
+    <drinks-menu>
+    </drinks-menu>
   </div>
 </template>
 <script>
