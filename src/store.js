@@ -33,6 +33,9 @@ export default new Vuex.Store({
   , useDrink(state, drink)
     { state.drink = drink;
     }
+  , dialog(state, dialog)
+    { state.dialog = dialog;
+    }
   },
   actions: 
   {
