@@ -75,7 +75,7 @@
     top: -1%;
     width: 102%;
     height: 102%;
-    background-image: url(./assets/images/bg.jpg);
+    background-image: url(./assets/images/bg.png);
     background-size: cover;
     background-position: 50%;
     filter: blur(10px);

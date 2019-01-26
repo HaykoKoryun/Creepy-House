@@ -29,6 +29,7 @@
     { canvas: null
     , pixiApp: null
     , pixiLoader: null
+    , guestContainer: null
     })
   , computed: mapState(
     { screenDimensions: 'screenDimensions'
@@ -66,17 +67,30 @@
 
       instance.pixiLoader = loader;
 
-      loader.add('/assets/images/bg.jpg');
+      loader.add('/assets/images/bg.png');
       loader.add('/assets/guests/babushka.png');
 
       await new Promise((resolve, reject) =>
-      { loader.load(() =>
-        { const sprite = PIXI.Sprite.fromImage('/assets/images/bg.jpg');
+      { loader.load((loader, resources) =>
+        { const bg = new PIXI.Sprite(resources['/assets/images/bg.png'].texture);
           
-          pixiApp.stage.addChild(sprite);
+          pixiApp.stage.addChild(bg);
 
-          const bab = PIXI.Sprite.fromImage('/assets/guests/babushka.png');
-          pixiApp.stage.addChild(bab);
+          const bab = new PIXI.Sprite(resources['/assets/guests/babushka.png'].texture)
+
+          instance.guestContainer = new PIXI.Sprite();
+          instance.guestContainer.addChild(bab);
+
+          instance.guestContainer.position.x = instance.pixiApp.stage.width / 2;
+          instance.guestContainer.position.y = instance.pixiApp.stage.height - 300;
+
+          instance.guestContainer.pivot = new PIXI.Point
+          ( bab.width / 2,
+            bab.height
+          );
+
+          pixiApp.stage.addChild(instance.guestContainer);
+          
           resolve();
         });
       });
