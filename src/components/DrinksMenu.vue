@@ -35,11 +35,12 @@
         diffx = (startx - (e.clientX + el.scrollLeft));
         diffy = (starty - (e.clientY + el.scrollTop));
         el.scrollLeft += diffx;
-        el.scrollTop += diffy;
+        // el.scrollTop += diffy;
     }
   }
 
   function onMouseUp (e) {
+    if(drag) e.preventDefault();
     drag = false;
     if (!e) { e = window.event; }
     var start = 1,

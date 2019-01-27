@@ -48,6 +48,12 @@
     margin: 6px 12px;
 
     border-radius: 2px;
+  
+    transition: all 0.25s;
+  }
+
+  #drink:hover {
+    transform: scale(1.1);
   }
 
   #drink .icon
@@ -60,5 +66,9 @@
   .title {
     color: #fff;
     font-size: 12px;
+  }
+
+  .title::selection {
+    background: #000;
   }
 </style>
