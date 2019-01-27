@@ -38,7 +38,6 @@
     , pixiApp: null
     , pixiLoader: null
     , guestContainer: null
-    , drinkContainer: null
     , ticker: null
     , store: store
     })
@@ -97,10 +96,11 @@
             /**
              * Nasty hack!
              */
-            instance.guestContainer.tween._object.brightness = 0.05;
+            instance.guestContainer.fadeInTween._object.brightness = 0.05;
+            instance.guestContainer.alpha = 1;
 
             if(newGuest != oldGuest)
-            { instance.guestContainer.tween.start();
+            { instance.guestContainer.fadeInTween.start();
             }
           }         
         }
@@ -109,12 +109,16 @@
       { const instance = this;
         if(newDrink)
         { instance.activeGuest.useDrink(newDrink.name);
+          
           setTimeout(() =>
           { if(instance.activeGuest)
             { if(instance.activeGuest.satisfaction <= 0)
               { instance.$store.commit('leaveGuest', instance.activeGuest);
               }
-              guestLeave();
+
+              instance.guestContainer.fadeOutTween._object.brightness = 1;
+              instance.guestContainer.fadeOutTween._object.alpha = 1;
+              instance.guestContainer.fadeOutTween.start();
             }
           }
           , 2000
@@ -169,20 +173,32 @@
             );
 
             guestContainer.filters = filters;
-            const props =
+
+            const fadeInProps =
             { brightness: 0.05
             };
+
+            const fadeOutProps =
+            { brightness: 1
+            , alpha: 1
+            };
           
-            const tween = new TWEEN.Tween(props).to({brightness: 1}, 1500)
+            const fadeInTween = new TWEEN.Tween(fadeInProps).to({brightness: 1}, 1500)
             .onUpdate(() =>
-            { filter.brightness(props.brightness, false);
+            { filter.brightness(fadeInProps.brightness, false);
             });
 
-            guestContainer.tween = tween;
-          }
+            guestContainer.fadeInTween = fadeInTween;
 
-          instance.drinkContainer = new PIXI.Sprite();
-          pixiApp.stage.addChild(instance.drinkContainer);
+            const fadeOutTween = new TWEEN.Tween(fadeOutProps).to({brightness: 0.05, alpha: 0}, 1000)
+            .onUpdate(() =>
+            { filter.brightness(fadeOutProps.brightness, false);
+              guestContainer.alpha = fadeOutProps.alpha;
+            })
+            .onComplete(guestLeave);
+
+            guestContainer.fadeOutTween = fadeOutTween;
+          }
           
           resolve();
         });
