@@ -19,6 +19,8 @@
   import { mapState } from 'vuex';
   import * as PIXI from 'pixi.js';
   import Howler from 'howler';
+  import TWEEN from '@tweenjs/tween.js';
+
   import Bar from './Bar.vue';
   import SpeechBubble from './SpeechBubble.vue';
   import assets from '../data/assets.js';
@@ -32,6 +34,7 @@
     , pixiLoader: null
     , guestContainer: null
     , drinkContainer: null
+    , ticker: null
     })
   , computed: mapState(
     { screenDimensions: 'screenDimensions'
@@ -81,6 +84,12 @@
           ( sprite.width / 2,
             sprite.height
           );
+
+          /**
+           * Nasty hack!
+           */
+          instance.guestContainer.tween._object.brightness = 0.05;
+          instance.guestContainer.tween.start();
         }         
       }
     , drink(newDrink)
@@ -101,6 +110,12 @@
       , view: instance.canvas
       });
 
+      instance.ticker = PIXI.ticker.shared;
+
+      instance.ticker.add((time) =>
+      { TWEEN.update(instance.ticker.total); 
+      });
+
       instance.pixiApp = pixiApp;
 
       const loader = new PIXI.loaders.Loader();
@@ -113,20 +128,33 @@
 
       await new Promise((resolve, reject) =>
       { loader.load((loader, resources) =>
-        { instance.guestContainer = new PIXI.Sprite();
-          pixiApp.stage.addChild(instance.guestContainer);
+        { const guestContainer = new PIXI.Sprite();
+          instance.guestContainer = guestContainer;
+
+          pixiApp.stage.addChild(guestContainer);
 
           const filters = [];
 
-          const filter = new PIXI.filters.ColorMatrixFilter();
-          filters.push(filter);
-          filter.brightness
-          (
-            0.05,
-            false
-          );
+          { const filter = new PIXI.filters.ColorMatrixFilter();
+            filters.push(filter);
+            filter.brightness
+            (
+              0.1,
+              false
+            );
 
-          instance.guestContainer.filters = filters;
+            guestContainer.filters = filters;
+            const props =
+            { brightness: 0.05
+            };
+          
+            const tween = new TWEEN.Tween(props).to({brightness: 1}, 1500)
+            .onUpdate(() =>
+            { filter.brightness(props.brightness, false);
+            });
+
+            guestContainer.tween = tween;
+          }
 
           instance.drinkContainer = new PIXI.Sprite();
           pixiApp.stage.addChild(instance.drinkContainer);
