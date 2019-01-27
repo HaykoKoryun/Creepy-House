@@ -48,6 +48,15 @@ function cancelTimeout()
   }
 }
 
-setInterval(() => {
+let intervalId = setInterval(() => {
   store.commit('changeTime');
+
+  if(store.state.time === 6) {
+    if(store.state.guest.length > 0) {
+      // TODO YOU WAN NICE MANNN
+    }
+    else {
+      // TODO YOU LOSE SUCK THE BALLZ
+    }
+  }
 }, ONE_HOUR);
