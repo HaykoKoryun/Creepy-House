@@ -18,6 +18,7 @@
 <script>
   import { mapState } from 'vuex';
   import * as PIXI from 'pixi.js';
+  import Howler from 'howler';
   import Bar from './Bar.vue';
   import SpeechBubble from './SpeechBubble.vue';
   import assets from '../data/assets.js';
@@ -115,10 +116,35 @@
         { instance.guestContainer = new PIXI.Sprite();
           pixiApp.stage.addChild(instance.guestContainer);
 
+          const filters = [];
+
+          const filter = new PIXI.filters.ColorMatrixFilter();
+          filters.push(filter);
+          filter.brightness
+          (
+            0.05,
+            false
+          );
+
+          instance.guestContainer.filters = filters;
+
           instance.drinkContainer = new PIXI.Sprite();
           pixiApp.stage.addChild(instance.drinkContainer);
           
           resolve();
+        });
+      })
+      .then(() =>
+      { const barMusic = new Howl
+        ({
+          src: '/assets/audio/bar-music.mp3'
+        , format: ['mp3']
+        });
+
+        barMusic.on('load', function()
+        {
+          barMusic.play();
+          barMusic.loop(true);
         });
       });
 
