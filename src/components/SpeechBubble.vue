@@ -76,8 +76,8 @@
     color: #fff;
     font-weight: bold;
     font-size: 20px;
-    left: -50px;
-    width: 100px;
+    left: -100px;
+    width: 200px;
     text-align: center;
   }
 </style>
