@@ -12,15 +12,6 @@ export default function init(_store)
 { store = _store;
 
   chooseGuest();
-
-  // EventBus.on('useDrink', async drink => {
-  //   console.log('Drink used: ', drink);
-
-  //   store.state.activeGuest.useDrink(drink);
-    
-  //   await cancelTimeout();
-  //   await chooseGuest();
-  // });
 }
 
 function chooseGuest()
@@ -33,10 +24,21 @@ function chooseGuest()
 }
 
 function guestLeave()
-{ store.commit('activeGuest', null);
-  store.commit('useDrink', null);
-  cancelTimeout();
-  timeoutID = setTimeout(chooseGuest, 1000);
+{ 
+  console.log(store.state.drink);
+  if(store.state.drink === null) {
+    store.state.activeGuest.yourNotGonnaGetIt();
+    timeoutID = setTimeout(() => {
+      store.commit('useDrink', -1);
+      guestLeave();
+    }, TIMEOUT_OF_GUESTS_WAIT_TIME / 5);
+  } 
+  else {
+    store.commit('activeGuest', null);
+    store.commit('useDrink', null);
+    cancelTimeout();
+    timeoutID = setTimeout(chooseGuest, 1000);
+  }
 }
 
 function cancelTimeout()
