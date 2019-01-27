@@ -1,5 +1,7 @@
 import drinks from '../data/drinks';
 import guests from '../data/guests';
+import messages from '../data/messages.js';
+
 import store  from 'store';
 
 import randomFromArray from '../common/randomFromArray';
@@ -133,18 +135,18 @@ export default class Guest {
         this.satisfaction += this.good;
         if(this.satisfaction > 100) 
             this.satisfaction = 100;
-        store.commit('dialog', 'Noice one bro!');
+        store.commit('dialog', randomFromArray(messages.good));
     }
 
     damnIt() {
         this.satisfaction -= this.bad;
         if(Math.random() > 0.7) this.stage = STAGE_SAY_PREFERNCES;
         
-        store.commit('dialog', 'This is not my sandwich!');
+        store.commit('dialog', randomFromArray(messages.bad));
     }
 
     yourNotGonnaGetIt() {
         this.satisfaction -= this.hmm;
-        store.commit('dialog', 'I guess I could drink toilet water!');
+        store.commit('dialog', randomFromArray(messages.late));
     }
 }
