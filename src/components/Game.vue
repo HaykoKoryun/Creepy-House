@@ -57,40 +57,43 @@
 
         instance.pixiApp.stage.scale.set(ratio, ratio);
       }
-    , activeGuest(newGuest)
-      { const instance = this;
+    , activeGuest:
+      { deep: true
+      , handler(newGuest)
+        { const instance = this;
 
-        if(instance.guestContainer.children.length != 0)
-        { instance.guestContainer.removeChildren();
-        }
+          if(instance.guestContainer.children.length != 0)
+          { instance.guestContainer.removeChildren();
+          }
 
-        if(newGuest)
-        { const sprite =
-            new PIXI.Sprite
-            ( instance
-              .pixiLoader
-              .resources[`${newGuest.image}-${newGuest.mood}`]
-              .texture
+          if(newGuest)
+          { const sprite =
+              new PIXI.Sprite
+              ( instance
+                .pixiLoader
+                .resources[`${newGuest.image}-${newGuest.mood}`]
+                .texture
+              );
+
+            sprite.scale.set(0.45);
+
+            instance.guestContainer.addChild(sprite);
+
+            instance.guestContainer.position.x = instance.canvas.width / 2;
+            instance.guestContainer.position.y = instance.canvas.height - 280;
+
+            instance.guestContainer.pivot = new PIXI.Point
+            ( sprite.width / 2,
+              sprite.height
             );
 
-          sprite.scale.set(0.45);
-
-          instance.guestContainer.addChild(sprite);
-
-          instance.guestContainer.position.x = instance.canvas.width / 2;
-          instance.guestContainer.position.y = instance.canvas.height - 280;
-
-          instance.guestContainer.pivot = new PIXI.Point
-          ( sprite.width / 2,
-            sprite.height
-          );
-
-          /**
-           * Nasty hack!
-           */
-          instance.guestContainer.tween._object.brightness = 0.05;
-          instance.guestContainer.tween.start();
-        }         
+            /**
+             * Nasty hack!
+             */
+            instance.guestContainer.tween._object.brightness = 0.05;
+            instance.guestContainer.tween.start();
+          }         
+        }
       }
     , drink(newDrink)
       { const instance = this;
