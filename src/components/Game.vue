@@ -28,7 +28,7 @@
   import Bar from './Bar.vue';
   import SpeechBubble from './SpeechBubble.vue';
   import assets from '../data/assets.js';
-  import init from '../solutions/main.js';
+  import {init, guestLeave} from '../solutions/main.js';
   import store from 'store'
 
   export default
@@ -109,6 +109,7 @@
       { const instance = this;
         if(newDrink)
         { instance.activeGuest.useDrink(newDrink.name);
+          setTimeout(guestLeave, 2000);
         }
       }
     }

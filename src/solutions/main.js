@@ -10,7 +10,7 @@ const ONE_HOUR = sec(60);
 let store;
 let timeoutID = -1;
 
-export default function init(_store)
+export function init(_store)
 { store = _store;
 
   chooseGuest();
@@ -25,9 +25,10 @@ function chooseGuest()
   timeoutID = setTimeout(guestLeave, TIMEOUT_OF_GUESTS_WAIT_TIME);
 }
 
-function guestLeave()
+export function guestLeave()
 { if(store.state.drink === null) {
     store.state.activeGuest.yourNotGonnaGetIt();
+    cancelTimeout();
     timeoutID = setTimeout(() => {
       store.commit('useDrink', -1);
       guestLeave();
