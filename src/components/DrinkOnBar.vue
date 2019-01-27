@@ -27,9 +27,10 @@
     position: absolute;
     left:0px;
     right: 0px;
-    top: -415px;
+    top: -350px;
     margin: auto;
     width: 445px;
     height: 509px;
+    transform: scale3d(0.7, 0.7, 0.7);
   }
 </style>
