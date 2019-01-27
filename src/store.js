@@ -31,7 +31,8 @@ export default new Vuex.Store({
     { state.activeGuest = guest;
     }
   , useDrink(state, drink)
-    { state.drink = drink;
+    { 
+      if(state.drink == null || drink == null) state.drink = drink;
     }
   , dialog(state, dialog)
     { state.dialog = dialog;
