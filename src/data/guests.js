@@ -47,6 +47,14 @@ const guests =
     , 'Eee\'ayy'
     ]
   }
+, { image: 'fishy'
+  , names:
+    [ 'Fishlips'
+    , 'Fisher'
+    , 'Slippy'
+    , 'Gimme\'a\'Kiss'
+    ]
+  }
 ];
 
 export default guests;
