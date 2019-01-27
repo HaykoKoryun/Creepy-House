@@ -1,5 +1,5 @@
 <template>
-  <div id="drink" @click="use">
+  <div id="drink" @click="use" :style="componentStyle">
     <div class="icon" :style="iconStyle">
     </div>
     <p class="title">
@@ -10,6 +10,7 @@
 <script>
   import { mapState } from 'vuex';
   import EventBus from 'solutions/event-bus'
+  import store from 'store'
 
   export default
   { 
@@ -29,6 +30,12 @@
     computed: {
       iconStyle() {
         return `background-image: url("/assets/drinks-icons/${this.drink.image}.png")`;
+      },
+      componentStyle() {
+        return `
+          opacity: ${store.state.drink === null ? '1' : '0.6'};
+          cursor: ${store.state.drink === null ? 'pointer' : 'not-allowed'};
+        `;
       }
     }
   }
@@ -44,7 +51,6 @@
     width: 180px;
     height: 150px;
     box-sizing: border-box;
-    cursor: pointer;
     margin: 6px 12px;
 
     border-radius: 2px;
@@ -66,6 +72,11 @@
   .title {
     color: #fff;
     font-size: 12px;
+
+    -webkit-user-select: none;  /* Chrome all / Safari all */
+    -moz-user-select: none;     /* Firefox all */
+    -ms-user-select: none;      /* IE 10+ */
+    user-select: none;          /* Likely future */  
   }
 
   .title::selection {

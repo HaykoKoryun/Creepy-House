@@ -23,7 +23,7 @@
         e.returnValue = false;
     }
     startx = e.clientX + el.scrollLeft;
-    starty = e.clientY + el.scrollTop;
+    // starty = e.clientY + el.scrollTop;
     diffx = 0;
     diffy = 0;
     drag = true;
@@ -33,7 +33,7 @@
     if (drag === true) {
         if (!e) { e = window.event; }
         diffx = (startx - (e.clientX + el.scrollLeft));
-        diffy = (starty - (e.clientY + el.scrollTop));
+        // diffy = (starty - (e.clientY + el.scrollTop));
         el.scrollLeft += diffx;
         // el.scrollTop += diffy;
     }
@@ -50,7 +50,7 @@
                 window.cancelAnimationFrame(animate);
             } else {
                 el.scrollLeft += diffx * step;
-                el.scrollTop += diffy * step;
+                // el.scrollTop += diffy * step;
                 start -= 0.02;
                 window.requestAnimationFrame(animate);
             }
