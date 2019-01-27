@@ -90,7 +90,7 @@
   {
     position: absolute;
     left: 10%;
-    top: 43%;
+    top: 41%;
     width: 80%;
     height: 50%;
     display: flex;

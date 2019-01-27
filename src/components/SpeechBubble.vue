@@ -7,6 +7,23 @@
     <div class="triangle"></div>
     <div class="name">
       {{ activeGuest.name }}
+      <div class="satisfaction">
+        <span
+          v-for="(index) in 5"
+          :key="index"
+        >
+          <template
+            v-if="satisfaction >= index"
+          >
+            🌟
+          </template>
+          <template
+            v-else
+          >
+            ☆
+          </template>
+        </span>
+      </div>
     </div>
     <div class="bubble">
       {{ dialog }}
@@ -18,10 +35,16 @@
 
   export default
   { name: 'speech-bubble'
-  , computed: mapState(
-    [ 'activeGuest'
-    , 'dialog'
-    ])
+  , computed:
+    { satisfaction()
+      { const instance = this;
+        return Math.floor(instance.activeGuest.satisfaction / 20);
+      }
+    , ...mapState(
+      [ 'activeGuest'
+      , 'dialog'
+      ])
+    }
   }
 </script>
 <style scoped>
@@ -78,6 +101,15 @@
     font-size: 20px;
     left: -100px;
     width: 200px;
-    text-align: center;
+    text-align: right;
+  }
+
+  .satisfaction
+  {
+    position: absolute;
+    right: -140px;
+    top: 0px;
+    text-align: left;
+    letter-spacing: -3px;
   }
 </style>
