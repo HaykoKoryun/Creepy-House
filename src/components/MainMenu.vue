@@ -1,6 +1,5 @@
 <template>
   <div id="main-menu">
-    <h1>Party 'til Dawn</h1>
     <div
       id="start"
       @click="$store.commit('start');"
@@ -27,19 +26,18 @@
     margin: auto;
   }
 
-  h1
-  {
-    color: #fff;
-    font-size: 80px;
-    line-height: 100px;
-  }
-
   #start
   {
-    font-size: 40px;
+    font-size: 100px;
     font-weight: bold;
-    color: #f0f;
+    color: #f00;
     letter-spacing: 10px;
     cursor: pointer;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    margin: auto;
+    font-family: Creepster;
   }
 </style>

@@ -1,8 +1,13 @@
 <template>
   <div id="app">
     <div
+      v-if="started"
       id="bg"
-      :class="{blur:!started}"
+    >
+    </div>
+    <div
+      v-if="!started"
+      id="start-bg"
     >
     </div>
     <video
@@ -92,6 +97,18 @@
     background-position: 50%;
   }
 
+  #start-bg
+  {
+    position: absolute;
+    left: -1%;
+    top: -1%;
+    width: 102%;
+    height: 102%;
+    background-image: url(./assets/images/start.jpg);
+    background-size: cover;
+    background-position: 50%;
+  }
+
   #party-video
   {
     position: absolute;
@@ -99,11 +116,6 @@
     top: 0px;
     width: 100%;
     height: 100%;
-  }
-
-  #bg.blur
-  {
-    filter: blur(10px);
   }
 
   #gameOver
