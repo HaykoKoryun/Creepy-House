@@ -8,6 +8,10 @@ const STAGE_SAY_PREFERNCES = 1;
 const STAGE_WANT_AGAIN = 2;
 const STAGE_REPEAT = 3;
 
+const MOOD_NORMAL = 'normal';
+const MOOD_BAD = 'angry';
+const MOOD_GOOD = 'happy';
+
 export default class Guest {
     constructor (level) {
         this.isActivated = false;
@@ -23,6 +27,7 @@ export default class Guest {
         }
         
         this.image = _guest.image;
+        this.mood = MOOD_NORMAL;
 
         this.stage = STAGE_SAY_PREFERNCES;
 
@@ -60,8 +65,10 @@ export default class Guest {
 
     useDrink(usedDrink) {
         for(let drink of this.drinks) if(drink === usedDrink) {
+            this.mood = MOOD_GOOD;
             return this.noiceBro();
         }
+        this.mood = MOOD_BAD;
         return this.damnIt();
     }
 

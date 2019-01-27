@@ -69,7 +69,7 @@
             new PIXI.Sprite
             ( instance
               .pixiLoader
-              .resources[`${newGuest.image}-normal`]
+              .resources[`${newGuest.image}-${newGuest.mood}`]
               .texture
             );
 
