@@ -109,7 +109,16 @@
       { const instance = this;
         if(newDrink)
         { instance.activeGuest.useDrink(newDrink.name);
-          setTimeout(guestLeave, 2000);
+          setTimeout(() =>
+          { if(instance.activeGuest)
+            { if(instance.activeGuest.satisfaction <= 0)
+              { instance.$store.commit('leaveGuest', instance.activeGuest);
+              }
+              guestLeave();
+            }
+          }
+          , 2000
+          );
         }
       }
     }

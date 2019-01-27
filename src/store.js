@@ -30,6 +30,9 @@ export default new Vuex.Store({
   , activeGuest(state, guest)
     { state.activeGuest = guest;
     }
+  , leaveGuest(state, guest)
+    { state.guests.splice(state.guests.indexOf(guest), 1);
+    }
   , useDrink(state, drink)
     { 
       if(state.drink == null || drink == null) state.drink = drink;
