@@ -95,28 +95,31 @@ export default class Guest {
 
     processLevel(level) {
         switch(level) {
-            case 1:
-                this.drinkCount = 5;
+            // case 1:
+            //     this.drinkCount = 5;
+            //     this.good = 30;
+            //     this.bad  = 15;
+            //     this.hmm  = 5;
+            //     break;
+            // case 2:
+            //     this.drinkCount = 4;
+            //     this.good = 30;
+            //     this.bad  = 15;
+            //     this.hmm  = 5;
+            //     break;
+            case 1: 
+                this.drinkCount = 3;
                 this.good = 30;
                 this.bad  = 15;
                 this.hmm  = 5;
                 break;
             case 2:
-
-                break;
-            case 3: 
-                this.drinkCount = 4;
-                this.good = 30;
-                this.bad  = 15;
-                this.hmm  = 5;
-                break;
-            case 4:
                 this.drinkCount = 2;
                 this.good = 15;
                 this.bad  = 30;
                 this.hmm  = 20;
                 break;
-            case 5:
+            case 3:
                 this.drinkCount = 1;
                 this.good = 10;
                 this.bad  = 40;

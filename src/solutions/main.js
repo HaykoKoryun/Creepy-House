@@ -5,7 +5,7 @@ import randomFromArray from '../common/randomFromArray';
 const sec = x => x * 1000;
 const TIMEOUT_OF_GUESTS_WAIT_TIME = sec(10);
 
-const ONE_HOUR = sec(60);
+const ONE_HOUR = sec(20);
 
 let store;
 let timeoutID = -1;
