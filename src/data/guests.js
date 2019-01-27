@@ -8,7 +8,6 @@ const guests =
     [ 'Babayaga'
     , 'Yulya'
     , 'Elena'
-    , 'Lidiya'
     ]
   , size: large
   }
@@ -16,7 +15,6 @@ const guests =
   , names:
     [ 'Vlad'
     , 'Maximilian'
-    , 'Bloodsucker'
     , 'Gary'
     ]
   , size: medium
@@ -26,14 +24,12 @@ const guests =
     [ 'Tuto'
     , 'Puhupu'
     , 'Huhu\'k'
-    , 'Ramses'
     ]
   , size: medium
   }
 , { image: 'wolf'
   , names:
     [ 'Volk'
-    , 'Alfred'
     , 'Wolfy'
     , 'Lenin'
     ]
@@ -43,8 +39,7 @@ const guests =
   , names:
     [ 'The Rock'
     , 'The Mountain'
-    , 'Bobby'
-    , 'Chad'
+    , 'Hercules'
     ]
   , size: large
   }
@@ -53,19 +48,25 @@ const guests =
     [ 'Lucifer'
     , 'Satan'
     , 'El Chupacabra'
-    , 'Eee\'ayy'
     ]
   , size: small
   }
 , { image: 'fishy'
   , names:
     [ 'Fishlips'
-    , 'Fisher'
     , 'Slippy'
     , 'Gimme\'a\'Kiss'
     ]
   , size: small
   }
+, { image: 'monkey'
+  , names:
+    [ 'Yeti'
+    , 'Vanilla Ice'
+    , 'MonkeyK'
+    ]
+  , size: large
+}
 ];
 
 export default guests;
