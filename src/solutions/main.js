@@ -24,9 +24,7 @@ function chooseGuest()
 }
 
 function guestLeave()
-{ 
-  console.log(store.state.drink);
-  if(store.state.drink === null) {
+{ if(store.state.drink === null) {
     store.state.activeGuest.yourNotGonnaGetIt();
     timeoutID = setTimeout(() => {
       store.commit('useDrink', -1);
