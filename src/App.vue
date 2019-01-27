@@ -6,6 +6,7 @@
     >
     </div>
     <video
+      v-if="started"
       id="party-video"
       src="/assets/video/bg.webm"
       loop
