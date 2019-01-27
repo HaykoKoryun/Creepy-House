@@ -94,12 +94,13 @@
     width: 80%;
     height: 50%;
     display: flex;
-    /* justify-content: center; */
-
     overflow: hidden;
-
     padding-bottom: 16px;
-
     animation: fade 2s;
+
+    -webkit-user-select: none;  /* Chrome all / Safari all */
+    -moz-user-select: none;     /* Firefox all */
+    -ms-user-select: none;      /* IE 10+ */
+    user-select: none;          /* Likely future */  
   }
 </style>
