@@ -23,7 +23,6 @@
         e.returnValue = false;
     }
     startx = e.clientX + el.scrollLeft;
-    // starty = e.clientY + el.scrollTop;
     diffx = 0;
     diffy = 0;
     drag = true;

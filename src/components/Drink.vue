@@ -1,5 +1,5 @@
 <template>
-  <div id="drink" @click="use" :style="componentStyle">
+  <div id="drink" @dblclick="use" :style="componentStyle">
     <div class="icon" :style="iconStyle">
     </div>
     <p class="title">
