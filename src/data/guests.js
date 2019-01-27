@@ -1,3 +1,7 @@
+const large = 0.5;
+const medium = 0.45;
+const small = 0.4;
+
 const guests =
 [ { image: 'babushka'
   , names:
@@ -6,6 +10,7 @@ const guests =
     , 'Elena'
     , 'Lidiya'
     ]
+  , size: large
   }
 , { image: 'vlad'
   , names:
@@ -14,6 +19,7 @@ const guests =
     , 'Bloodsucker'
     , 'Gary'
     ]
+  , size: medium
   }
 , { image: 'mummy'
   , names:
@@ -22,6 +28,7 @@ const guests =
     , 'Huhu\'k'
     , 'Ramses'
     ]
+  , size: medium
   }
 , { image: 'wolf'
   , names:
@@ -30,6 +37,7 @@ const guests =
     , 'Wolfy'
     , 'Lenin'
     ]
+  , size: small
   }
 , { image: 'moose'
   , names:
@@ -38,6 +46,7 @@ const guests =
     , 'Bobby'
     , 'Chad'
     ]
+  , size: large
   }
 , { image: 'devil'
   , names:
@@ -46,6 +55,7 @@ const guests =
     , 'El Chupacabra'
     , 'Eee\'ayy'
     ]
+  , size: small
   }
 , { image: 'fishy'
   , names:
@@ -54,6 +64,7 @@ const guests =
     , 'Slippy'
     , 'Gimme\'a\'Kiss'
     ]
+  , size: small
   }
 ];
 

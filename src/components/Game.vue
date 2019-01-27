@@ -82,7 +82,7 @@
                 .texture
               );
 
-            sprite.scale.set(0.45);
+            sprite.scale.set(newGuest.size);
 
             instance.guestContainer.addChild(sprite);
 
