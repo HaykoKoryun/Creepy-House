@@ -66,7 +66,15 @@ const guests =
     , 'MonkeyK'
     ]
   , size: large
-}
+  }
+, { image: 'frankenstein'
+  , names:
+    [ 'Frankie'
+    , 'Albert'
+    , 'Bob'
+    ]
+  , size: large
+  }
 ];
 
 export default guests;
