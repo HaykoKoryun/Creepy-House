@@ -31,32 +31,7 @@ export default class Guest {
 
         this.stage = STAGE_SAY_PREFERNCES;
 
-        switch(level) {
-            case 1: 
-                this.drinkCount = 3;
-                this.good = 20;
-                this.bad  = 20;
-                this.hmm  = 10;
-            break;
-            case 2:
-                this.drinkCount = 2;
-                this.good = 15;
-                this.bad  = 30;
-                this.hmm  = 20;
-            break;
-            case 3:
-                this.drinkCount = 1;
-                this.good = 10;
-                this.bad  = 40;
-                this.hmm  = 30;
-            break;
-            default:
-                this.good = 15;
-                this.bad  = 30;
-                this.hmm  = 20;
-                this.drinkCount = 2;
-            break;
-        }
+        this.processLevel(this.level);
     
         this.chooseDrinks();
 
@@ -97,6 +72,8 @@ export default class Guest {
         if(this.stage === STAGE_REPEAT) {
             this.chooseDrinks();
             
+            this.level++;
+            processLevel(this.level);
             this.stage = 1;
             return this.activate();
         }
@@ -114,8 +91,47 @@ export default class Guest {
         }
     }
 
+    processLevel(level) {
+        switch(level) {
+            case 1:
+                this.drinkCount = 5;
+                this.good = 30;
+                this.bad  = 15;
+                this.hmm  = 5;
+                break;
+            case 2:
+
+                break;
+            case 3: 
+                this.drinkCount = 4;
+                this.good = 30;
+                this.bad  = 15;
+                this.hmm  = 5;
+                break;
+            case 4:
+                this.drinkCount = 2;
+                this.good = 15;
+                this.bad  = 30;
+                this.hmm  = 20;
+                break;
+            case 5:
+                this.drinkCount = 1;
+                this.good = 10;
+                this.bad  = 40;
+                this.hmm  = 30;
+                break;
+            default:
+                this.drinkCount = 1;
+                this.good = 10;
+                this.bad  = 40;
+                this.hmm  = 30;
+                break;
+        }
+    }
+
     noiceBro() {
         this.satisfaction += this.good;
+        if(this.satisfaction > 100) this.satisfaction = 100;
         store.commit('dialog', 'Noice one bro!');
     }
 

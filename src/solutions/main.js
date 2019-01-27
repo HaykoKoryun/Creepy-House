@@ -5,6 +5,8 @@ import randomFromArray from '../common/randomFromArray';
 const sec = x => x * 1000;
 const TIMEOUT_OF_GUESTS_WAIT_TIME = sec(10);
 
+const ONE_HOUR = sec(60);
+
 let store;
 let timeoutID = -1;
 
@@ -45,3 +47,7 @@ function cancelTimeout()
     timeoutID = -1;
   }
 }
+
+setInterval(() => {
+  store.commit('changeTime');
+}, ONE_HOUR);

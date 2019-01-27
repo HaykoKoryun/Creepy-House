@@ -37,6 +37,9 @@ export default new Vuex.Store({
   , dialog(state, dialog)
     { state.dialog = dialog;
     }
+  , changeTime(state) 
+    { --state.time;
+    }
   },
   actions: 
   {

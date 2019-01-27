@@ -1,5 +1,9 @@
 <template>
   <div id="game">
+    <div id="status-panel">
+      {{ status }}
+    </div>
+    
     <canvas
       id="canvas"
       ref="canvas"
@@ -41,6 +45,7 @@
     , activeGuest: 'activeGuest'
     , dialog: 'dialog'
     , drink: 'drink'
+    , status: 'status'
     })
   , components:
     { Bar
