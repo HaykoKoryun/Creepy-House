@@ -34,6 +34,7 @@ function chooseGuest()
 
 function guestLeave()
 { store.commit('activeGuest', null);
+  store.commit('useDrink', null);
   cancelTimeout();
   timeoutID = setTimeout(chooseGuest, 1000);
 }

@@ -83,6 +83,8 @@ export default class Guest {
         }
 
         if(this.stage === STAGE_REPEAT) {
+            this.chooseDrinks();
+            
             this.stage = 1;
             return this.activate();
         }
