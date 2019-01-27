@@ -5,6 +5,7 @@ const guests =
 , 'wolf'
 , 'moose'
 , 'devil'
+, 'fishy'
 ];
 
 const states =
