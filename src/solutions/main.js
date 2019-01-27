@@ -54,10 +54,10 @@ let intervalId = setInterval(() => {
 
   if(store.state.time === 6) {
     if(store.state.guest.length > 0) {
-      // TODO YOU WAN NICE MANNN
+      store.commit('winGame');
     }
     else {
-      // TODO YOU LOSE SUCK THE BALLZ
+      store.commit('gameOver');
     }
   }
 }, ONE_HOUR);

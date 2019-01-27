@@ -6,7 +6,7 @@
     >
     </div>
     <video
-      v-if="started"
+      v-if="started && !gameOver"
       id="party-video"
       src="/assets/video/bg.webm"
       loop
@@ -14,13 +14,19 @@
     >
     </video>
     <MainMenu
-      v-if="!started" 
+      v-if="!started && !gameOver" 
     >
     </MainMenu>
     <game
-      v-if="started"
+      v-if="started && !gameOver"
     >
     </game>
+    <div
+      v-if="gameOver"
+      id="gameOver"
+    >
+      YOU LOSE!!!
+    </div>
   </div>
 </template>
 <script>
@@ -35,8 +41,9 @@
     , Game
     }
   , computed: mapState(
-    { started: 'started'
-    })
+    [ 'started'
+    , 'gameOver'
+    ])
   , mounted()
     { const instance = this;
 
@@ -97,5 +104,21 @@
   #bg.blur
   {
     filter: blur(10px);
+  }
+
+  #gameOver
+  {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    color: #f00;
+    font-family: Creepster;
+    font-size: 200px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 </style>

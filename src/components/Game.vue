@@ -42,12 +42,12 @@
     , store: store
     })
   , computed: mapState(
-    { screenDimensions: 'screenDimensions'
-    , activeGuest: 'activeGuest'
-    , dialog: 'dialog'
-    , drink: 'drink'
-    // , status: 'status'
-    })
+    [ 'screenDimensions'
+    , 'activeGuest'
+    , 'dialog'
+    , 'drink'
+    , 'guests'
+    ])
   , components:
     { Bar
     , SpeechBubble
@@ -123,6 +123,13 @@
           }
           , 2000
           );
+        }
+      }
+    , guests(newGuests)
+      { const instance = this;
+        
+        if(newGuests.length == 0)
+        { instance.$store.commit('gameOver');
         }
       }
     }

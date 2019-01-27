@@ -12,6 +12,7 @@ export default new Vuex.Store({
   , dialog: ''
   , drinks: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
   , guests: [new Guest(1),new Guest(1),new Guest(1),new Guest(1),new Guest(2),new Guest(2),new Guest(2),new Guest(3)]
+  //, guests: [new Guest(1)]
   , activeGuest: null
   , time: 12
   , screenDimensions:
@@ -19,6 +20,7 @@ export default new Vuex.Store({
     , height: 0
     }
   , drink: null
+  , gameOver: false
   },
   mutations:
   { start(state)
@@ -42,6 +44,9 @@ export default new Vuex.Store({
     }
   , changeTime(state) 
     { --state.time;
+    }
+  , gameOver(state)
+    { state.gameOver = true;
     }
   },
   actions: 

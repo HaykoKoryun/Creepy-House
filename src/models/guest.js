@@ -36,7 +36,7 @@ export default class Guest {
     
         this.chooseDrinks();
 
-        this.satisfaction = 60;
+        this.satisfaction = 10;
 
         this.size = _guest.size;
     }
