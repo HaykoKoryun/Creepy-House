@@ -18,14 +18,13 @@ export default class Guest {
     constructor (level) {
         this.isActivated = false;
         this.level = level;
-        
+
         const _guest = randomFromArray(guests);
 
         this.name = randomFromArray(_guest.names);
-        _guest.names.splice(_guest.names.indexOf(this.name), 1);
 
-        if(_guest.names.length == 0)
-        { guests.splice(guests.indexOf(_guest));
+        for(let i in guests) {
+            if(guests[i].image == _guest.image) guests.splice(i, 1); 
         }
         
         this.image = _guest.image;
@@ -37,7 +36,7 @@ export default class Guest {
     
         this.chooseDrinks();
 
-        this.satisfaction = 100;
+        this.satisfaction = 60;
 
         this.size = _guest.size;
     }
@@ -70,7 +69,7 @@ export default class Guest {
 
         if(this.stage === STAGE_WANT_AGAIN) {
             store.commit('dialog', 'Another one!');
-            if(Math.random() > 0.5) this.stage++;
+            if(Math.random() > 0.7) this.stage++;
         }
 
         if(this.stage === STAGE_REPEAT) {
