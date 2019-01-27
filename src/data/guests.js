@@ -1,21 +1,51 @@
 const guests =
 [ { image: 'babushka'
-  , gender: 'female' 
+  , names:
+    [ 'Babayaga'
+    , 'Yulya'
+    , 'Elena'
+    , 'Lidiya'
+    ]
   }
 , { image: 'vlad'
-  , gender: 'male'
+  , names:
+    [ 'Vlad'
+    , 'Maximilian'
+    , 'Bloodsucker'
+    , 'Gary'
+    ]
   }
 , { image: 'mummy'
-  , gender: 'male'
+  , names:
+    [ 'Tuto'
+    , 'Puhupu'
+    , 'Huhu\'k'
+    , 'Ramses'
+    ]
   }
 , { image: 'wolf'
-  , gender: 'male'
+  , names:
+    [ 'Volk'
+    , 'Alfred'
+    , 'Wolfy'
+    , 'Lenin'
+    ]
   }
 , { image: 'moose'
-  , gender: 'male'
+  , names:
+    [ 'The Rock'
+    , 'The Mountain'
+    , 'Bobby'
+    , 'Chad'
+    ]
   }
 , { image: 'devil'
-  , gender: 'male'
+  , names:
+    [ 'Lucifer'
+    , 'Satan'
+    , 'El Chupacabra'
+    , 'Eee\'ayy'
+    ]
   }
 ];
 

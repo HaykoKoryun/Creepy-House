@@ -1,4 +1,3 @@
-const faker = require('faker');
 import drinks from '../data/drinks';
 import guests from '../data/guests';
 import store  from 'store';
@@ -16,7 +15,13 @@ export default class Guest {
         
         const _guest = randomFromArray(guests);
 
-        this.name = faker.name.firstName(_guest.gender);
+        this.name = randomFromArray(_guest.names);
+        _guest.names.splice(_guest.names.indexOf(this.name), 1);
+
+        if(_guest.names.length == 0)
+        { guests.splice(guests.indexOf(_guest));
+        }
+        
         this.image = _guest.image;
 
         this.stage = STAGE_SAY_PREFERNCES;
