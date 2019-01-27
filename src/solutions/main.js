@@ -31,7 +31,7 @@ function guestLeave()
     timeoutID = setTimeout(() => {
       store.commit('useDrink', -1);
       guestLeave();
-    }, TIMEOUT_OF_GUESTS_WAIT_TIME / 5);
+    }, sec(4));
   } 
   else {
     store.commit('activeGuest', null);
