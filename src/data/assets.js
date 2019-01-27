@@ -2,6 +2,9 @@ const guests =
 [ 'babushka'
 , 'mummy'
 , 'vlad'
+, 'wolf'
+, 'moose'
+, 'devil'
 ];
 
 const states =
