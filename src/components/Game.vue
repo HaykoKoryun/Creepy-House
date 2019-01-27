@@ -1,7 +1,7 @@
 <template>
   <div id="game">
     <div id="status-panel">
-      {{ status }}
+      {{ store.state.status }}
     </div>
     
     <canvas
@@ -29,6 +29,7 @@
   import SpeechBubble from './SpeechBubble.vue';
   import assets from '../data/assets.js';
   import init from '../solutions/main.js';
+  import store from 'store'
 
   export default
   { name: 'Game'
@@ -39,13 +40,14 @@
     , guestContainer: null
     , drinkContainer: null
     , ticker: null
+    , store: store
     })
   , computed: mapState(
     { screenDimensions: 'screenDimensions'
     , activeGuest: 'activeGuest'
     , dialog: 'dialog'
     , drink: 'drink'
-    , status: 'status'
+    // , status: 'status'
     })
   , components:
     { Bar
@@ -124,7 +126,9 @@
       instance.ticker = PIXI.ticker.shared;
 
       instance.ticker.add((time) =>
-      { TWEEN.update(instance.ticker.total); 
+      { 
+        TWEEN.update(instance.ticker.total); 
+        store.state.status = `${store.state.time}AM. ${store.state.guests.length} Guests left`;
       });
 
       instance.pixiApp = pixiApp;
@@ -208,6 +212,13 @@
     right: 0px;
     font-weight: bold;
     color: #fff;
+  }
+
+  #status-panel {
+    color: #fff;
+    position: absolute;
+    left: 16px;
+    top: 16px;
   }
 
   #guest-name {

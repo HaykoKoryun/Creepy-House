@@ -66,7 +66,7 @@ export default class Guest {
 
         if(this.stage === STAGE_WANT_AGAIN) {
             store.commit('dialog', 'Another one!');
-            return this.stage++;
+            if(Math.random() > 0.5) this.stage++;
         }
 
         if(this.stage === STAGE_REPEAT) {
@@ -131,12 +131,15 @@ export default class Guest {
 
     noiceBro() {
         this.satisfaction += this.good;
-        if(this.satisfaction > 100) this.satisfaction = 100;
+        if(this.satisfaction > 100) 
+            this.satisfaction = 100;
         store.commit('dialog', 'Noice one bro!');
     }
 
     damnIt() {
         this.satisfaction -= this.bad;
+        if(Math.random() > 0.7) this.stage = STAGE_SAY_PREFERNCES;
+        
         store.commit('dialog', 'This is not my sandwich!');
     }
 
