@@ -64,7 +64,7 @@
       }
     , activeGuest:
       { deep: true
-      , handler(newGuest)
+      , handler(newGuest, oldGuest)
         { const instance = this;
 
           if(instance.guestContainer.children.length != 0)
@@ -96,7 +96,10 @@
              * Nasty hack!
              */
             instance.guestContainer.tween._object.brightness = 0.05;
-            instance.guestContainer.tween.start();
+
+            if(newGuest != oldGuest)
+            { instance.guestContainer.tween.start();
+            }
           }         
         }
       }
