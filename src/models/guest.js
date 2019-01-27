@@ -73,7 +73,7 @@ export default class Guest {
             this.chooseDrinks();
             
             this.level++;
-            processLevel(this.level);
+            this.processLevel(this.level);
             this.stage = 1;
             return this.activate();
         }
