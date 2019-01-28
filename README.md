@@ -4,7 +4,7 @@
 
 Your __home__ is the best place to invite your M̶̴̮͎̦͉̲͙̣̟Ơ̷͎̗̥͜Ń̵̛̛͔̳͚̜͍̥͝S̕҉̶̸͈͔̪̘̝͕̞͔̪͙͔̝T͏̸̡͚̗̬͓͔̝̟̠͠È̗̳̥̼̹̘͇̤̙̞͎̺͔́͜͞͞ͅR̶̷͓̜̜̟͍̥̀́     &nbsp; friends over for a wicker party.  
 Trouble is, you've just conveniently been afflicted with _amnesia_ and now you don't know __who's__ coming and what their favorite __drink__ is.  
-Your friends will help you with stating what their poison of choice, but after that you're on your own!  
+Your friends will help you with stating their poison of choice, but after that you're on your own!  
 
 Make sure to keep them satisfied 'til __dawn__ to win the game.
 
