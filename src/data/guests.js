@@ -1,6 +1,6 @@
-const large = 0.5;
-const medium = 0.45;
-const small = 0.4;
+const large = 1;
+const medium = 1;
+const small = 1;
 
 const guests =
 [ { image: 'babushka'
