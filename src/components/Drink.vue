@@ -29,7 +29,7 @@
     },
     computed: {
       iconStyle() {
-        return `background-image: url("/assets/drinks-icons/${this.drink.image}.png")`;
+        return `background-image: url("assets/drinks-icons/${this.drink.image}.png")`;
       },
       componentStyle() {
         return `

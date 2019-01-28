@@ -13,7 +13,7 @@
   { name: 'drink-on-bar'
   , computed:
     { iconStyle()
-      { return `background-image: url("/assets/drinks-on-bar/${this.drink.image}.png")`;
+      { return `background-image: url("assets/drinks-on-bar/${this.drink.image}.png")`;
       }
     , ...mapState(
       [ 'drink'

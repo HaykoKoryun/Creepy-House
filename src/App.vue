@@ -16,9 +16,9 @@
       loop
       autoplay
     >
-      <source src="/assets/video/bg.webm" type="video/webm">
-      <source src="/assets/video/bg.mp4" type="video/mp4">
-      <source src="/assets/video/bg.ogg" type="video/ogg">
+      <source src="assets/video/bg.webm" type="video/webm">
+      <source src="assets/video/bg.mp4" type="video/mp4">
+      <source src="assets/video/bg.ogg" type="video/ogg">
     </video>
     <MainMenu
       v-if="!started && !gameOver" 
