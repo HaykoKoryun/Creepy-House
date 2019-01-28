@@ -213,7 +213,7 @@
       .then(() =>
       { const barMusic = new Howl
         ({
-          src: '/assets/audio/bar-music.mp3'
+          src: 'assets/audio/bar-music.mp3'
         , format: ['mp3']
         });
 
